@@ -24,6 +24,7 @@ import java.net.URLEncoder;
 public class SpeechRecognizerMain {
 	
 	String lang_code="en-us";
+	int input;
 	
 	// Necessary
 	private LiveSpeechRecognizer recognizer;
@@ -79,9 +80,9 @@ public class SpeechRecognizerMain {
 		
 		try {
 			BufferedReader ob=new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("List of available languages are : \n1. US English\n2. Indian English\n3. Hindi\n4. Italian\n5. German\n\nEnter the language number : ");
+			System.out.println("List of available languages are : \n1. US English\n2. Indian English\n3. Hindi\n4. Italian\n5. German\n6. French\n7. Dutch\n8. Catalan\n9. Spanish\n10. Portuguese\n\nEnter the language number : ");
 			
-			int input=Integer.parseInt(ob.readLine());
+			input=Integer.parseInt(ob.readLine());
 			if(input==1)
 				lang_code="en-us";
 			else if(input==2)
@@ -92,6 +93,16 @@ public class SpeechRecognizerMain {
 				lang_code="it";
 			else if(input==5)
 				lang_code="de";
+			else if(input==6)
+				lang_code="fr";
+			else if(input==7)
+				lang_code="nl";
+			else if(input==8)
+				lang_code="ca";
+			else if(input==9)
+				lang_code="es";
+			else if(input==10)
+				lang_code="pt";
 			else
 				{
 				System.out.println("Invalid Language Code");
@@ -141,6 +152,45 @@ public class SpeechRecognizerMain {
 		configuration.setLanguageModelPath("resource:/hindi_lm/hindi.lm");
 		}
 		
+
+		else if(lang_code.equals("fr")) {
+		//French
+		configuration.setAcousticModelPath("resource:/french_acoustic/");
+		configuration.setDictionaryPath("resource:/french_lm/fr.dict");
+		configuration.setLanguageModelPath("resource:/french_lm/fr-small.lm.bin");
+		}
+		
+		else if(lang_code.equals("nl")) {
+		//Dutch
+		configuration.setAcousticModelPath("resource:/dutch_acoustic/");
+		configuration.setDictionaryPath("resource:/dutch_lm/voxforge_nl_sphinx.dic");
+		configuration.setLanguageModelPath("resource:/dutch_lm/voxforge_nl_sphinx.lm");
+		}
+		
+		else if(lang_code.equals("ca")) {
+		//Catalan
+		configuration.setAcousticModelPath("resource:/catalan_acoustic/");
+		configuration.setDictionaryPath("resource:/catalan_lm/pronounciation-dictionary.dict");
+		configuration.setLanguageModelPath("resource:/catalan_lm/language-model.lm.bin");
+		}
+		
+		else if(lang_code.equals("es")) {
+		//Spanish
+		configuration.setAcousticModelPath("resource:/spanish_acoustic/");
+		configuration.setDictionaryPath("resource:/spanish_lm/voxforge_es_sphinx.dic");
+		configuration.setLanguageModelPath("resource:/spanish_lm/es-20k.lm");
+		}
+		
+		
+		else if(lang_code.equals("pt")) {
+		//Portuguese
+		configuration.setAcousticModelPath("resource:/portuguese_acoustic/");
+		configuration.setDictionaryPath("resource:/portuguese_lm/br-pt.dic");
+		//configuration.setLanguageModelPath("resource:/spanish_lm/es-20k.lm");
+		configuration.setGrammarPath("resource:/grammars");
+		configuration.setGrammarName("grammar-pt");
+		configuration.setUseGrammar(true);
+		}
 		//====================================================================================
 		//=====================READ THIS!!!===============================================
 		//Uncomment this line of code if you want the recognizer to recognize every word of the language 
@@ -156,7 +206,7 @@ public class SpeechRecognizerMain {
 		// Grammar
 		//configuration.setGrammarPath("resource:/grammars");
 		//configuration.setGrammarName("grammar-en");
-		//configuration.setGrammarName("grammar-hi");
+		//configuration.setGrammarName("grammar-pt");
 		//configuration.setUseGrammar(true);
 		
 		try {
@@ -323,6 +373,7 @@ public class SpeechRecognizerMain {
 	 * @throws IOException 
 	 */
 	public void makeDecision(String speech , List<WordResult> speechWords) throws IOException {
+		if(input>3)
 		System.out.println("Translated text: " + translate(lang_code, "en", speech));
 		//System.out.println(speech);
 		
