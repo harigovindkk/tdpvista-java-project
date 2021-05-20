@@ -8,12 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
+using System.Runtime.InteropServices;
 
 namespace TextEditor  
 {
     public partial class EditorScreen : Form
     {
+       
+        public const string CppFunctionsDLL = @"C:\Users\harig\source\repos\Temp\Debug\Temp.dll";
+        [DllImport(CppFunctionsDLL, CallingConvention = CallingConvention.Cdecl)]
+        public static extern string changeColor(string inp);
+
+
+
         public EditorScreen()
         {
             InitializeComponent();
@@ -187,6 +194,16 @@ namespace TextEditor
 
                 }
             }
+            //inputText.Clear();
+            //TextRange textRange = newTextRange(rtb.Document.ContentStart, inputText.ContentEnd);
+            //string[] RichTextBoxLines = inputText.Lines;
+            //inputText.Clear();
+            //foreach (string line in RichTextBoxLines)
+            //{
+              //  string a = changeColor(line);
+               // inputText.AppendText(a);
+            //}
+            
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -196,6 +213,14 @@ namespace TextEditor
 
         private void EditorScreen_Load(object sender, EventArgs e)
         {
+            //MyStruct ms = new MyStruct();
+            //ms.a = 5;
+            //ms.b = 10;
+
+            //int output = AddNumbers(ms);
+            //MessageBox.Show(output.ToString(), "ItemClicked Event");
+
+            //Console.WriteLine($"Output is: {output}");
 
         }
 

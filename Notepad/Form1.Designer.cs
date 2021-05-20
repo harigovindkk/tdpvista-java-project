@@ -57,7 +57,6 @@ namespace TextEditor
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.cutToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -66,7 +65,7 @@ namespace TextEditor
             this.undoButton = new System.Windows.Forms.ToolStripButton();
             this.redoButton = new System.Windows.Forms.ToolStripButton();
             this.selectAllButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.colouriseButton = new System.Windows.Forms.ToolStripButton();
             this.inputText = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -253,7 +252,6 @@ namespace TextEditor
             this.newToolStripButton,
             this.openToolStripButton,
             this.saveToolStripButton,
-            this.printToolStripButton,
             this.toolStripSeparator6,
             this.cutToolStripButton,
             this.copyToolStripButton,
@@ -262,7 +260,7 @@ namespace TextEditor
             this.undoButton,
             this.redoButton,
             this.selectAllButton,
-            this.toolStripButton1});
+            this.colouriseButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 27);
@@ -299,15 +297,6 @@ namespace TextEditor
             this.saveToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.saveToolStripButton.Text = "&Save";
             this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
-            // 
-            // printToolStripButton
-            // 
-            this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
-            this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.printToolStripButton.Name = "printToolStripButton";
-            this.printToolStripButton.Size = new System.Drawing.Size(29, 24);
-            this.printToolStripButton.Text = "&Print";
             // 
             // toolStripSeparator6
             // 
@@ -379,15 +368,16 @@ namespace TextEditor
             this.selectAllButton.Text = "select all";
             this.selectAllButton.Click += new System.EventHandler(this.selectAllButton_Click);
             // 
-            // toolStripButton1
+            // colouriseButton
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.colorChangeButton_Click);
+            this.colouriseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.colouriseButton.Image = ((System.Drawing.Image)(resources.GetObject("colouriseButton.Image")));
+            this.colouriseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.colouriseButton.Name = "colouriseButton";
+            this.colouriseButton.Size = new System.Drawing.Size(29, 24);
+            this.colouriseButton.Text = "toolStripButton1";
+            this.colouriseButton.ToolTipText = "show keywords";
+            this.colouriseButton.Click += new System.EventHandler(this.colorChangeButton_Click);
             // 
             // inputText
             // 
@@ -457,8 +447,13 @@ namespace TextEditor
         private System.Windows.Forms.ToolStripButton Redo;
         private System.Windows.Forms.ToolStripButton redoButton;
         private System.Windows.Forms.ToolStripButton selectAllButton;
-        private System.Windows.Forms.ToolStripButton printToolStripButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton colourise;
+        private AutocompleteMenuNS.AutocompleteMenu autocompleteMenu1;
+        private AutocompleteMenuNS.AutocompleteMenu autocompleteMenu2;
+        private AutocompleteMenuNS.AutocompleteMenu autocompleteMenu3;
+        private AutocompleteMenuNS.AutocompleteMenu autocompleteMenu4;
+        private AutocompleteMenuNS.AutocompleteMenu autocompleteMenu5;
+        private System.Windows.Forms.ToolStripButton colouriseButton;
     }
 }
 
